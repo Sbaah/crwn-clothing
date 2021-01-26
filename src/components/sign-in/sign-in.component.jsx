@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormInput } from '../form-input/form-input.component';
 import { CustomButton } from '../custom-button/custom-button.component';
-import { signInWithGoogle } from '../../firebase/firebase.utils';
+import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 import './sign-in.styles.scss';
 
 export class SignIn extends React.Component {
@@ -15,11 +15,18 @@ export class SignIn extends React.Component {
   }
 
   // method for submission fo the form
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     // to prevent the default behaviour of the form and give me control
     event.preventDefault();
 
-    this.setState({ email: '', password: '' });
+    // sign-in with the email and passed ~~~
+    const { email, password } = this.state;
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      this.setState({ email: '', password: '' });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   handleChange = (event) => {
