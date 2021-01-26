@@ -5,7 +5,7 @@ import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { auth } from '../../firebase/firebase.utils';
 
 import './header.styles.scss';
-
+// here hold the logging-in and the sign-up and contact links
 export const Header = ({ currentUser }) => {
   return (
     <div className='header'>
