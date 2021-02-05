@@ -2,6 +2,8 @@
 // Represents a state object which can be a last state, current state or the initial state
 //
 
+import { UserActionTypes } from './user.types';
+
 const INITIAL_STATE = {
   currentUser: null,
 };
@@ -10,7 +12,7 @@ const INITIAL_STATE = {
 // switch statement
 export const useReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'SET_CURRENT_USER':
+    case UserActionTypes.SET_CURRENT_USER:
       return {
         ...state,
         currentUser: action.payload,
