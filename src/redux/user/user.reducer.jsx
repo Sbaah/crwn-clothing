@@ -10,7 +10,7 @@ const INITIAL_STATE = {
 
 // if state is ever undefined then it will use the `Initial_State`
 // switch statement
-export const useReducer = (state = INITIAL_STATE, action) => {
+const useReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case UserActionTypes.SET_CURRENT_USER:
       return {
@@ -22,3 +22,5 @@ export const useReducer = (state = INITIAL_STATE, action) => {
       return state;
   }
 };
+
+export default useReducer;
