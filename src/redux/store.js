@@ -5,12 +5,13 @@ import rootReducer from './root-reducer';
 
 const middlewares = [];
 
-// if (process.env.NODE_ENV === 'development') {
-//   middlewares.push(logger);
-// }
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'development') {
   middlewares.push(logger);
 }
+
+// if (process.env.NODE_ENV !== 'production') {
+//   middlewares.push(logger);
+// }
 /**
  * Is a combination of the root reducer and the middleware
  * for the logging the output of the what going on ...
